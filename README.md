@@ -1,4 +1,4 @@
-# React + Node js
+# React js + Node js
 
 Aprendendo no curso do explore da Rocketseat
 
