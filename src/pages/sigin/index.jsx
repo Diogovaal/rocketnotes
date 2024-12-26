@@ -12,7 +12,7 @@ import { Button } from '../../components/button'
 
 export function SignIn(){
 
-    const[email, setEmail]= useState("")
+    const[email, setEmail] = useState("")
     const[password, setPassword]= useState("")
     const {signIn} = useAuth()
     
@@ -43,7 +43,7 @@ export function SignIn(){
                 onChange={e =>setPassword(e.target.value)}
                 />
 
-                <Button title='Entrar' onClick={handleSignIn} />
+                <Button title='Entrar' onClick = {handleSignIn} />
 
                     <Link to ='/register'>Criar conta</Link>
             
