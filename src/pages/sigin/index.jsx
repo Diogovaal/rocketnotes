@@ -30,22 +30,22 @@ export function SignIn(){
                 <h2>Faça o seu login</h2>
 
                 <Input 
-                placeholer = 'email'
+                placeholder = 'email'
                 type='text'
                 icon={FiMail}
-                onChange={e =>setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 />
 
                 <Input 
-                placeholer = 'senha'
+                placeholder = 'senha'
                 type='password'
                 icon={FiLock}
-                onChange={e =>setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
                 />
 
                 <Button title='Entrar' onClick = {handleSignIn} />
 
-                    <Link to ='/register'>Criar conta</Link>
+                    <Link to = '/register' >Criar conta</Link>
             
 
                 

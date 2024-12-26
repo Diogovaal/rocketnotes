@@ -11,7 +11,7 @@ const AuthContext = createContext({})
                 try{
                     const response = await api.post("/sessions", {email, password})
                     const {user, token} = response.data
-                     
+
                    api.defaults.headers.authorization = `Bearer ${token}`
                    setData({user, token})
 
@@ -29,7 +29,7 @@ const AuthContext = createContext({})
             }
             return(
 
-                <AuthContext.Provider value={ {signIn, user: data.user }}>
+                <AuthContext.Provider value ={ {signIn, user: data.user }}>
                     {children}
                 </AuthContext.Provider>
             )
