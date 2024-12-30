@@ -11,9 +11,13 @@ import{useState} from 'react'
 import {Container, Form} from './styles'
 
 export function New(){
+    
 
     const[links, setLinks]= useState([])
     const[newLink, setNewLink]= useState("")
+
+    const[tags, setTags]= useState([])
+    const[newTag, setNewTag]= useState("")
 
     function handleAddLink(){
         setLinks(prevState => [...prevState, newLink] )
@@ -22,6 +26,16 @@ export function New(){
 
     function handleRemoveLink(deleted){
         setLinks(prevState => prevState.filter(link => link !== deleted))
+    }
+
+    function handleAddTag(){
+        setTags(prevState =>[...prevState, newTag])/**prevState: prevenir os estados anteriores sem que precisa eliminar, e o "..." ele disfaz a lista anterior, despejando todas as informações numa nova lista */
+        setNewTag("")
+
+    }
+
+    function handleRemoveTag(deleted){
+        setTags(prevState => prevState.filter(tag => tag !== deleted))
     }
 
     return(
@@ -62,8 +76,26 @@ export function New(){
 
                     <Section title='Marcadores'>
                         <div className='tags'>
-                    <NoteItem value='react' />
-                    <NoteItem isNew placeholder='Nova tags' />
+                            {
+                              tags.map((tag, index)=>(
+                                <NoteItem 
+                                key={String(index)}
+                                value={tag}
+                                onClick={()=>handleRemoveTag(tag)}
+                                
+                                />
+
+                              ))
+                            }
+                  
+
+                    <NoteItem 
+                    isNew 
+                    placeholder='Nova tag' 
+                    value={newTag}
+                    onChange = {e => setNewTag(e.target.value)}
+                    onClick={handleAddTag}
+                    />
                     </div>
                     </Section>
 
