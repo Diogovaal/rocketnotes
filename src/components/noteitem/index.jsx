@@ -5,7 +5,7 @@ import {Container} from './styles'
 export function NoteItem({isNew, value, onClick, ...rest}){
 
     return(
-        <Container isNew={isNew}>
+        <Container isnew={isNew}>
             <input 
             type="text" 
             value={value} 
