@@ -13,10 +13,20 @@ import { api } from "../../services/api";
 export function Home(){
     const[tags, setTags]= useState([])
     const[tagsSelected, setTagsSelected]= useState([])
+    const [search, setSearch] = useState('')
 
 
     function handleTagSelected(tagName){
-        setTagsSelected([tagName])
+
+        const alreadySelected = tagsSelected.includes(tagName)
+        if(alreadySelected){
+            const filteredTags = tagsSelected.filter(tag => tag !== tagName)
+            setTagsSelected(filteredTags)
+        }else{
+            setTagsSelected(prevState => [...prevState, tagName])
+            
+        }
+        
     }
 
 
@@ -29,6 +39,11 @@ export function Home(){
 
     fetchTags()
     }, [])
+
+    useEffect(()=>{
+
+
+    },[tagsSelected, search])
 
     return(
 
@@ -62,7 +77,10 @@ export function Home(){
             </Menu>
 
             <Search>
-                <Input placeholder="Pesquisar pelo titulo"/>
+                <Input 
+                placeholder="Pesquisar pelo titulo"
+                onChange={()=> setSearch(e.target.value)}
+                />
 
             </Search>
 
