@@ -9,7 +9,7 @@ export function NoteItem({isNew, value, onClick, ...rest}){
             <input 
             type="text" 
             value={value} 
-            readOnly={!isNew}
+            readOnly={isNew}
             {...rest} />
 
             <button 
