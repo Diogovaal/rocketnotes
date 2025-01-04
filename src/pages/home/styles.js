@@ -54,14 +54,15 @@ text-align: center;
 
 export const Search= styled.div`
     grid-area: search;
-    padding: 0 64px;
-    overflow-y: auto;
+    padding: 64px 64px 0;
+    
 
 ` 
 
 export const Content= styled.div`
     grid-area: content;
-    padding: 64px 64px 0;
+    padding: 0 64px;
+    overflow-y: auto;
 
 ` 
 
