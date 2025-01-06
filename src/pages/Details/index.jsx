@@ -17,14 +17,14 @@ const params = useParams()
 const navigate = useNavigate()
 
 function handleBack(){
-  navigate('/')
+  navigate(-1)//voltar uma página sem ter que recarregar
 }
 
 async function handleRemove(){
  const confirm = window.confirm('Deseja realmente excluir essa nota?')
  if(confirm) {
   await api.delete(`/notes/${params.id}`)
-  navigate('/')
+  navigate(-1)
  }
  
 }
